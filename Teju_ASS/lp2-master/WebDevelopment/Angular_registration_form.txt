@@ -1,0 +1,187 @@
+// If angular CLI is not present install it first 
+
+- npm i -g @angular/cli
+
+//Create angular project
+
+- ng new app_name
+- cd app_name
+
+// Run application 
+
+- ng serve 
+
+
+/////////////////////////////CODE////////////////////////
+
+******src/app/app.component.html :
+
+
+<div style="width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding-top: 5%; ">
+  <form (submit)="onSubmit()" id="registrationForm" style="display: flex; flex-direction: column; width: 28%;">
+      <div class="dataContainer">
+          <label>Name :</label>
+          <input id="name" name="name" type="text" [(ngModel)]="userData.name">
+      </div>
+      <div class="dataContainer">
+          <label>Email :</label>
+          <input id="email" name="email" type="email" [(ngModel)]="userData.email">
+      </div>
+      <div class="dataContainer">
+          <label>Password :</label>
+          <input id="password" name="password" type="password" [(ngModel)]="userData.password">
+      </div>
+      <div class="twoInOne">
+          <div class="dataContainer" style="width: 45%">
+              <label>Age :</label>
+              <input id="age" name="age" type="number" [(ngModel)]="userData.age">
+          </div>
+          <div class="dataContainer" style="width: 45%">
+              <label>Date of Birth :</label>
+              <input id="dob" name="dob" type="date" [(ngModel)]="userData.dob">
+          </div>
+      </div>
+      <div class="twoInOne">
+          <div class="dataContainer" style="width: 45%">
+              <label>City :</label>
+              <input id="city" name="city" type="text" [(ngModel)]="userData.city">
+          </div>
+          <div class="dataContainer" style="width: 45%">
+              <label>Pincode :</label>
+              <input id="pincode" name="pincode" type="number" [(ngModel)]="userData.pincode">
+          </div>
+      </div>
+      <div class="dataContainer" style="margin-top: 20px;">
+          <input type="submit" id="submit">
+          <input type="reset" id="reset">
+      </div>
+  </form>
+  <div>
+    <p>Name: {{savedData.name}}</p>
+    <p>Email: {{savedData.email}}</p>
+    <p>Age: {{savedData.age}}</p>
+    <p>DOB: {{savedData.dob}}</p>
+    <p>City: {{savedData.city}}</p>
+    <p>Pincode: {{savedData.pincode}}</p>
+  </div>
+</div>
+
+
+*****app/src/app.component.css :
+
+.dataContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 10px;
+    width: fit-content;
+    height: fit-content;
+    width: 100%;
+}
+
+.twoInOne {
+    display: flex;
+    flex-direction: row;
+    gap: 10%;
+}
+
+label{
+    font-weight: 600;
+}
+
+input{
+    font-size: medium;
+    font-weight: 500;
+}
+
+input[type="text"], input[type="email"]{
+    height: 35px;
+    width: 100%;
+    border-radius: 5px;
+    outline: none;
+    padding-left: 10px;
+    margin-top: 5px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    border: none;
+    outline: none;
+}
+
+input[type="number"], input[type="date"], input[type="password"]{
+    height: 35px;
+    width: 100%;
+    border-radius: 5px;
+    outline: none;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    padding-left: 10px;
+    margin-top: 5px;
+    border: none;
+    outline: none;
+}
+
+input[type="submit"], input[type="reset"]{
+    height: 40px;
+    width: 104%;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    margin-top: 10px;
+
+    font-weight: 500;
+    color: white;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+#submit{
+    background-color: rgb(17, 150, 0);
+}
+
+#submit:hover{
+    background-color: rgb(52, 192, 34)
+}
+
+#reset{
+    background-color: rgb(235, 0, 0);
+}
+
+#reset:hover{
+    background-color: rgb(250, 24, 24);
+}
+
+
+****** src/app/app.component.ts
+
+export class AppComponent {
+  userData = {
+    name: '',
+    email: '',
+    password: '',
+    age: '',
+    dob: '',
+    city: '',
+    pincode: ''
+  }
+
+  savedData: any = {}
+
+  onSubmit(){
+    this.savedData = this.userData;
+  }
+
+}
+
+
+
+********** src/app/app.module.ts
+
+import "FormsModule" :
+
+imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule
+  ],
+
+

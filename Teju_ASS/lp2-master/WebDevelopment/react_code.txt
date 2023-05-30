@@ -1,0 +1,70 @@
+// create project in react 
+
+- npx  create-react-app  app_name
+
+- cd app_name
+
+// run
+
+- npm start
+
+/// runs on default localhost:3000
+
+
+
+/////////////////////////////////////////////////code registration form///////////////
+
+
+*****src/App.js*************
+
+
+import logo from './logo.svg';
+import './App.css';
+import { useState } from "react";
+
+function App() {
+  var [ count, setCount ] = useState(0);
+
+  return (
+    <>
+      <h1 style={{marginLeft: "5%"}}>Counter App</h1>
+      <div style={{display: "flex", flexDirection: "row", gap: 40, marginLeft: "5%"}}>
+        <button style={{width: "50px"}} onClick={()=>{setCount(--count)}}>-</button>
+        <p>{count}</p>
+        <button style={{width: "50px"}} onClick={()=>{setCount(++count)}}>+</button>
+      </div>
+    </>
+  );
+}
+
+export default App;
+
+
+/////////////////////////////////////////////////code simple "hello app"/////////////////////
+
+*****src/App.js*************
+
+import logo from './logo.svg';
+import './App.css';
+
+
+function App() {
+
+
+  return (
+    <div className="App">
+      <p className='cont'>Hello Rajat This Side</p>
+    </div>
+  );
+}
+
+export default App;
+
+
+
+***********src/App.css******************
+
+.cont{
+  color: red;
+}
+

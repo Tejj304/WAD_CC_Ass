@@ -1,0 +1,29 @@
+npx create-react-app hook-demo
+
+src > app.js
+
+
+import React, { useState } from 'react';
+function App() {
+  const [count, setCount] = useState(0);
+  
+  return (
+    <div>
+      <h1>This is {count} </h1>
+      <button onClick={() => setCount(count + 1)}>
+        Increment
+      </button>
+      <button onClick={()=>setCount(count-1)} >Decrement</button>
+    </div>
+  );
+}
+export default App;
+
+
+
+
+
+
+
+to start use the command 
+npm start
